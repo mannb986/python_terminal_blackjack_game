@@ -28,4 +28,4 @@ def card_deal():
     print(player_name + "'s cards are " + str(player_cards_list))
     print("Dealer's first card is " + str(dealer_cards_list[0]))
 
-card_deal()
+#card_deal()
