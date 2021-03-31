@@ -20,9 +20,8 @@ dealer_cards_list = []
 
 
 #Game play
-def blackjack_game():
-    random.shuffle(card_deck)
-
+def blackjack_game(deck_of_cards):
+    random.shuffle(deck_of_cards)
     #first deal of player's  2 cards and removing those cards from the deck
     i = 0
     while i < 2:
@@ -44,8 +43,8 @@ def blackjack_game():
     print("Dealer's first card is " + str(dealer_cards_list[0]))
 
     #scoring blackjack from first deal
-    if sum(player_cards_list)) == 21:
-        print("You win " + player_name = " you scored BlackJack")
+    if sum(player_cards_list) == 21:
+        print("You win " + player_name + " you scored BlackJack")
 
 
-blackjack_game()
+blackjack_game(card_deck)
