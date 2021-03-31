@@ -15,27 +15,26 @@ ace = 11
 
 card_deck = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, jack, jack, jack, jack, queen, queen, queen, queen, king, king, king, king, ace, ace, ace, ace]
 
-player_cards_list = []
-dealer_cards_list = []
-
 
 #Game play
 def blackjack_game(deck_of_cards):
+    player_cards_list = []
+    dealer_cards_list = []
     random.shuffle(deck_of_cards)
     #first deal of player's  2 cards and removing those cards from the deck
     i = 0
     while i < 2:
-        p_card = random.choice(card_deck)
+        p_card = random.choice(deck_of_cards)
         player_cards_list.append(p_card)
-        card_deck.remove(p_card)
+        deck_of_cards.remove(p_card)
         i += 1
 
     #first deal of dealer's 2 cards removing those cards from the deck
     j= 0
     while j < 2:
-        d_card = random.choice(card_deck)
+        d_card = random.choice(deck_of_cards)
         dealer_cards_list.append(d_card)
-        card_deck.remove(d_card)
+        deck_of_cards.remove(d_card)
         j += 1
 
     #player's two cards displayed and one of the dealer's cards is displayed
@@ -46,5 +45,7 @@ def blackjack_game(deck_of_cards):
     if sum(player_cards_list) == 21:
         print("You win " + player_name + " you scored BlackJack")
 
+
+#def card_draw():
 
 blackjack_game(card_deck)
