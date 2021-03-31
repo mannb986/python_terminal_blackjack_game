@@ -23,7 +23,6 @@ dealer_cards_list = []
 #Game play
 
 def blackjack_game():
-
     #first deal of player's  2 cards and removing those cards from the deck
     i = 0
     while i < 2:
@@ -44,7 +43,6 @@ def blackjack_game():
     print(player_name + "'s cards are " + str(player_cards_list))
     print("Dealer's first card is " + str(dealer_cards_list[0]))
     print("Your total is " + str(sum(player_cards_list)))
-
     #scoring blackjack from first deal
     if sum(player_cards_list) == 21:
         return print("You win " + player_name + " you scored BlackJack")
@@ -62,11 +60,10 @@ def blackjack_game():
             return print('Sorry you are bust, dealer wins')
         else:
             player_draw = input('Do you want to draw a card, yes or no?')
-
     #dealer draw
-    print("Dealer to draw:")
-    print(dealer_cards_list)
+    print("Dealer's cards are: " + str(dealer_cards_list))
     while sum(dealer_cards_list) < 17:
+        print("Dealer to draw:")
         d_card = random.choice(game_cards)
         dealer_cards_list.append(d_card)
         game_cards.remove(d_card)
@@ -75,7 +72,6 @@ def blackjack_game():
             return print('Delaer bust ' + player_name + ' you WIN!')
 
     print("Dealer total is " + str(sum(dealer_cards_list)))
-
     #comparing scores and deciding who wins
     if sum(player_cards_list) > sum(dealer_cards_list):
         print(player_name + ' you WIN!')
