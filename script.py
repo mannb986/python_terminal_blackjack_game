@@ -3,7 +3,7 @@ import random
 
 # Setting up player name
 player_name = input('Enter your name:')
-print('Hello, ' + player_name + "let's play Blackjack!")
+print('Hello, ' + player_name + " let's play Blackjack!")
 
 # Setting up card deck 
 jack = 10
@@ -18,21 +18,34 @@ card_deck = [2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7
 player_cards_list = []
 dealer_cards_list = []
 
-#Function for game play
-def blackjack_game():
-    card_deck_shuffle = random.shuffle(card_deck)
-    first_card_deal()
 
-#Function to do first card deal
-def first_card_deal():
-    player_cards_1 = random.choice(card_deck_shuffle)
-    player_cards_2 = random.choice(card_deck_shuffle)
-    player_cards_list.append(player_cards_1)
-    player_cards_list.append(player_cards_2)
-    dealer_cards_1 = random.choice(card_deck_shuffle)
-    dealer_cards_2 = random.choice(card_deck_shuffle)
-    dealer_cards_list.append(dealer_cards_1)
-    dealer_cards_list.append(dealer_cards_2)
+#Game play
+def blackjack_game():
+    random.shuffle(card_deck)
+
+    #first deal of player's  2 cards and removing those cards from the deck
+    i = 0
+    while i < 2:
+        p_card = random.choice(card_deck)
+        player_cards_list.append(p_card)
+        card_deck.remove(p_card)
+        i += 1
+
+    #first deal of dealer's 2 cards removing those cards from the deck
+    j= 0
+    while j < 2:
+        d_card = random.choice(card_deck)
+        dealer_cards_list.append(d_card)
+        card_deck.remove(d_card)
+        j += 1
+
+    #player's two cards displayed and one of the dealer's cards is displayed
     print(player_name + "'s cards are " + str(player_cards_list))
     print("Dealer's first card is " + str(dealer_cards_list[0]))
 
+    #scoring blackjack from first deal
+    if sum(player_cards_list)) == 21:
+        print("You win " + player_name = " you scored BlackJack")
+
+
+blackjack_game()
